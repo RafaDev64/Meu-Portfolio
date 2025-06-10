@@ -1,0 +1,103 @@
+         body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: #181c24;
+            color: #f7f7f7;
+            margin: 0;
+            min-height: 100vh;
+        }
+        header {
+            background: #232837;
+            padding: 32px 0 18px 0;
+            text-align: center;
+            box-shadow: 0 2px 24px #0005;
+        }
+        header h1 {
+            color: #00740a;
+            font-size: 2.2em;
+            margin-bottom: 8px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 32px auto;
+            background: #232837;
+            border-radius: 18px;
+            box-shadow: 0 2px 24px #0003;
+            padding: 32px 24px;
+        }
+        .resumo {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .card {
+            flex: 1;
+            background: #181c24;
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+            box-shadow: 0 1px 8px #0002;
+            min-width: 180px;
+        }
+        .card h2 {
+            font-size: 1.1em;
+            color: #00740a;
+            margin-bottom: 8px;
+        }
+        .card p {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        form {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        form input, form select {
+            padding: 8px;
+            border-radius: 6px;
+            border: none;
+            font-size: 1em;
+            background: #2c3142;
+            color: #f7f7f7;
+        }
+        form button {
+            background: #00740a;
+            color: #181c24;
+            border: none;
+            padding: 8px 22px;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        form button:hover {
+            background: #fff;
+            color: #ff9900;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #232837;
+        }
+        th, td {
+            padding: 10px 6px;
+            text-align: left;
+        }
+        th {
+            color: #00740a;
+            border-bottom: 1px solid #444;
+        }
+        tr:not(:last-child) td {
+            border-bottom: 1px solid #232837;
+        }
+        .saida { color: #e74c3c; }
+        .entrada { color: #27ae60; }
+        @media (max-width: 700px) {
+            .resumo { flex-direction: column; }
+            .container { padding: 16px 4vw; }
+            form { flex-direction: column; gap: 8px; }
+        }

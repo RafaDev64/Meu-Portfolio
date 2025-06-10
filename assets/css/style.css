@@ -1,0 +1,376 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #d9d9d9;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #d9d9d9;
+            font-weight: 600;
+            font-size: 1em;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover::after, nav a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #6B46C1;
+            bottom: -5px;
+            left: 0;
+        }
+
+        nav a:hover, nav a.active {
+            color: #6B46C1;
+        }
+
+        section {
+            padding: 120px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #sobre {
+            margin-top: 100px;
+            text-align: left;
+        }
+
+        #sobre h1, #projetos h1, #certificados h1, #contato h1 {
+            font-size: 3em;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        #sobre p {
+            max-width: 700px;
+            font-size: 1.1em;
+            position: relative;
+        }
+
+        .typing-text {
+            display: inline-block;
+            white-space: pre-wrap;
+            overflow: hidden;
+            border-right: 2px solid #6B46C1;
+            animation: blinkCursor 0.75s step-end infinite;
+        }
+
+        @keyframes blinkCursor {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        #projetos {
+            background-color: #1a1a1a;
+            padding: 80px 40px;
+        }
+
+        .projeto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .projeto-card {
+            background-color: #252525;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .projeto-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+            border: 2px solid #6B46C1;
+        }
+
+        .projeto-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .projeto-card h3 {
+            font-size: 1.6em;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .projeto-card p {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .projeto-card a {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #6B46C1;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .projeto-card a:hover {
+            background-color: #5539a0;
+        }
+
+        #certificados {
+            background-color: #1a1a1a;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .carrossel-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carrossel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .certificado-card {
+            flex: 0 0 100%;
+            background-color: #252525;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: left;
+            border: 2px solid transparent;
+            transition: border 0.3s ease;
+        }
+
+        .certificado-card:hover {
+            border: 2px solid #6B46C1;
+        }
+
+        .certificado-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .certificado-card h3 {
+            font-size: 1.6em;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .certificado-card p {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .certificado-card a {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #6B46C1;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .certificado-card a:hover {
+            background-color: #5539a0;
+        }
+
+        .carrossel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #6B46C1;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        .carrossel-btn:hover {
+            background-color: #5539a0;
+        }
+
+        .prev-btn {
+            left: -50px;
+        }
+
+        .next-btn {
+            right: -50px;
+        }
+
+        .carrossel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            background-color: #d9d9d9;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: #6B46C1;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 2em;
+            cursor: pointer;
+        }
+
+        #contato {
+            text-align: center;
+        }
+
+        #contato .social-links {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        #contato .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #252525;
+            border-radius: 50%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #contato .social-links a:hover {
+            background-color: #6B46C1;
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #0a0a0a;
+            color: #d9d9d9;
+            text-align: center;
+            padding: 30px;
+            margin-top: 80px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            nav a {
+                margin: 10px;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+
+            .projeto-grid, .carrossel-container {
+                grid-template-columns: 1fr;
+            }
+
+            .carrossel-btn {
+                padding: 8px;
+            }
+
+            .prev-btn {
+                left: 10px;
+            }
+
+            .next-btn {
+                right: 10px;
+            }
+        }
