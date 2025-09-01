@@ -155,23 +155,6 @@ document.querySelectorAll('nav a').forEach(link => {
         }
     });
 });
-//Pause ao interagir com os botões
-    let autoSlide = setInterval(() => {
-        currentIndex = (currentIndex + 1) % cards.length;
-        updateCarrossel();
-    }, 6000);
-
-    prevBtn.addEventListener('click', () => {
-        clearInterval(autoSlide);
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        updateCarrossel();
-    });
-
-    nextBtn.addEventListener('click', () => {
-        clearInterval(autoSlide);
-        currentIndex = (currentIndex + 1) % cards.length;
-        updateCarrossel();
-    });
 
 // Destacar seção ativa ao rolar
 window.addEventListener('scroll', () => {
@@ -193,3 +176,4 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
