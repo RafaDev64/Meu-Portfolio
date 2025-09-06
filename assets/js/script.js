@@ -2,19 +2,22 @@
         // Menu Hamburguer
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
-hamburger.onclick = () => {
-    navLinks.classList.toggle('active');
-};
-
-// Fecha o menu ao clicar em um link (opcional)
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+if (hamburger && navLinks) {
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.onclick = () => {
+        const isActive = navLinks.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isActive);
+    };
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
     });
-});
+}
 
 // Função para o efeito de digitação
-function typeText(element, text, speed = 50) {
+function typeText(element, text, speed = 40) {
     let index = 0;
     element.textContent = '';
     element.classList.add('typing-text');
@@ -49,71 +52,7 @@ const observer = new IntersectionObserver((entries) => {
 
 observer.observe(aboutSection);
 
-// Carrossel de certificados
-const carrossel = document.querySelector('.carrossel');
-const cards = document.querySelectorAll('.certificado-card');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-const indicatorsContainer = document.querySelector('.carrossel-indicators');
-let currentIndex = 0;
 
-// Criar indicadores
-cards.forEach((_, index) => {
-    const indicator = document.createElement('div');
-    indicator.classList.add('indicator');
-    if (index === 0) indicator.classList.add('active');
-    indicator.addEventListener('click', () => goToSlide(index));
-    indicatorsContainer.appendChild(indicator);
-});
-
-function updateCarrossel() {
-    carrossel.style.transform = `translateX(-${currentIndex * 100}%)`;
-    document.querySelectorAll('.indicator').forEach((ind, i) => {
-        ind.classList.toggle('active', i === currentIndex);
-    });
-}
-
-function goToSlide(index) {
-    currentIndex = (index + cards.length) % cards.length;
-    updateCarrossel();
-}
-
-prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    updateCarrossel();
-});
-
-nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % cards.length;
-    updateCarrossel();
-});
-
-// Modal para certificados
-const certificateModal = document.getElementById('certificateModal');
-const modalImg = certificateModal.querySelector('#certificateImage');
-const modalClose = certificateModal.querySelector('.modal-close');
-const modalBtns = document.querySelectorAll('.modal-btn');
-
-modalBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const imgSrc = btn.getAttribute('data-img');
-        modalImg.src = imgSrc;
-        certificateModal.style.display = 'flex';
-    });
-});
-
-modalClose.addEventListener('click', () => {
-    certificateModal.style.display = 'none';
-    modalImg.src = '';
-});
-
-certificateModal.addEventListener('click', (e) => {
-    if (e.target === certificateModal) {
-        certificateModal.style.display = 'none';
-        modalImg.src = '';
-    }
-});
 
 // Modais para descrições de projetos
 document.querySelectorAll('.btn-descricao').forEach(button => {
@@ -123,13 +62,13 @@ document.querySelectorAll('.btn-descricao').forEach(button => {
     });
 });
 
-document.querySelectorAll('#modal1 .modal-close, #modal2 .modal-close, #modal3 .modal-close').forEach(close => {
+document.querySelectorAll('#modal1 .modal-close, #modal2 .modal-close, #modal3 .modal-close, #modal4 .modal-close').forEach(close => {
     close.addEventListener('click', () => {
         close.closest('.modal').style.display = 'none';
     });
 });
 
-document.querySelectorAll('#modal1, #modal2, #modal3').forEach(modal => {
+document.querySelectorAll('#modal1, #modal2, #modal3, #modal4').forEach(modal => {
     modal.addEventListener('click', (event) => {
         if (event.target === modal) {
             modal.style.display = 'none';
@@ -137,11 +76,7 @@ document.querySelectorAll('#modal1, #modal2, #modal3').forEach(modal => {
     });
 });
 
-// Troca automática dos certificados a cada 6 segundos
-setInterval(() => {
-    currentIndex = (currentIndex + 1) % cards.length;
-    updateCarrossel();
-}, 6000);
+
 
 // Rolagem suave
 document.querySelectorAll('nav a').forEach(link => {
@@ -155,6 +90,7 @@ document.querySelectorAll('nav a').forEach(link => {
         }
     });
 });
+
 
 // Destacar seção ativa ao rolar
 window.addEventListener('scroll', () => {
@@ -176,4 +112,3 @@ window.addEventListener('scroll', () => {
         }
     });
 });
-
