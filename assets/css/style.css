@@ -6,27 +6,51 @@
         }
 
         body {
-             background: linear-gradient(135deg,   #000000 50%, rgb(4, 47, 83) 100%);
+            background: linear-gradient( 135deg,   #000000 10%, rgb(4, 47, 83) 100%);
             color: #d9d9d9;
             line-height: 1.8;
             overflow-x: hidden;
         }
+
+        header {
+            position: fixed; /* Alterado de sticky para fixed para garantir que o header fique sempre no topo */
+            top: 0;
+            left: 0; /* Garante que o header ocupe toda a largura */
+            width: 100%; /* Ocupa toda a largura da tela */
+            padding: 10px 16px;
+            /*Efeito vidro*/
+            background: rgba(0, 0, 0, 0.35);
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 13.5px );
+            -webkit-backdrop-filter: blur( 13.5px );
+            border-color: invisible;
+            /*border: 1px solid rgba(133, 133, 133, 0.18);*/
+            /*Fim efeito vidro*/
+            color: #f1f1f1;
+            z-index: 900; /* Menor que o modal (1000), mas maior que as seções */
+            transition: background 0.3s ease, box-shadow 0.3s ease; /* Suaviza a transição do scrolled */
+        }
+        header.scrolled {
+            background: #1a1a1a;
+            box-shadow: 0 2px 8px #0002;
+        }
+
 
         /* Menu Hamburguer Responsivo */
         .navbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: transparent;
+            
             padding: 0 40px; /* Afastamento do logo e menu das bordas */
             min-height: 60px;
+    
         }
         .logo {
            
             color: steelblue;
-    
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 1.9rem;
             letter-spacing: 1px;
             text-decoration: none;
         }
@@ -45,7 +69,7 @@
             transition: color 0.2s;
             padding: 8px 0;
         }
-        .nav-links a.active,
+        
         .nav-links a:hover {
             color: steelblue;
         }
@@ -114,14 +138,15 @@
 
         #sobre {
             margin-top: 100px;
-            text-align: left;
-             
+            text-align: left;     
         }
 
-        #sobre h1, #projetos h1, #certificados h1, #contato h1 {
-            font-size: 3em;
+        #sobre h1, #projetos h1, #contato h1 {
+            font-size: 4em;
             font-weight: 700;          
             margin-bottom: 20px;
+            color:steelblue;
+            
         }
 
         #sobre p {
@@ -146,7 +171,7 @@
         }
 
         #projetos {
-            background-color: #1a1a1a;
+            background-color: invisible;
             padding: 80px 40px;
         }
 
@@ -158,12 +183,16 @@
 
         .projeto-card {
             display: flex; /* Usar flexbox para o layout */
-            background-color: #000000;
+            background: transparent;
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 13.5px );
+             -webkit-backdrop-filter: blur( 13.5px );   
+            border-radius: 10px;
+            
             font-size: 1.2em;
             padding: 30px;
             padding: 50px;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
             border: 2px solid transparent;
@@ -218,7 +247,7 @@
             display: block; /* Permite que o botão ocupe toda a largura disponível */
             text-align: center; /* Centraliza o texto */
             text-decoration: none; /* Remove o sublinhado */
-            background-color: rgb(178, 255, 168); /* Cor de fundo do botão */
+            background-color: rgb(24, 167, 5); /* Cor de fundo do botão */
             color: #000000; /* Cor do texto */
             padding: 12px 25px; /* Espaçamento interno */
             border-radius: 8px; /* Bordas arredondadas */
@@ -230,187 +259,50 @@
         }
 
         .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1; 
+            display: none;
+            position: fixed;
+            z-index: 1000; /* Aumentado para garantir que o modal fique acima de outros elementos */
             left: 0;
             top: 0;
-            width: 150%; 
-            height: 150%; 
-            overflow: auto; 
-            background-color: rgb(0, 0, 0); 
-            background-color: rgba(233, 230, 230, 0.4); 
+            width: 100%; /* Alterado de 150% para cobrir exatamente a tela */
+            height: 100%; /* Alterado de 150% para cobrir exatamente a tela */
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4); /* Removido o background-color redundante */
         }
+
         .modal-content {
-            background-color: #000000;
+            background: rgba(3, 3, 3, 0.35);
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 13.5px );
+            -webkit-backdrop-filter: blur( 13.5px );
+            border-color: invisible;
+            border: 1px solid rgba(133, 133, 133, 0.18);
+            color: #ffffff; /* Cor do texto para legibilidade */
             font-size: 1.5em;
-            margin: 15% auto; 
+            position: absolute; /* Permite centralização precisa */
+            top: 50%; /* Centro vertical */
+            left: 50%; /* Centro horizontal */
+            transform: translate(-50%, -50%); /* Centraliza perfeitamente */
             padding: 20px;
-            border: 1px solid #888;
-            width: 80%; 
+            width: 80%;
+            max-width: 600px; /* Limita a largura para responsividade */
+            border-radius: 8px; /* Opcional: bordas arredondadas */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: sombra sutil */
         }
+
         .modal-close {
-            color: #000000;
+            color: #ff0000; /* Cor visível contra o fundo branco */
             float: right;
             font-size: 28px;
             font-weight: bold;
         }
+
         .modal-close:hover,
         .modal-close:focus {
-            color: black;
+            color: steelblue; /* Cor consistente com o tema do site */
             text-decoration: none;
             cursor: pointer;
         }
-
-        #certificados {
-             background: linear-gradient(135deg,   #000000 25, rgb(4, 47, 83) 100%);
-            padding: 80px 40px;
-            text-align: center;
-        }
-
-        .carrossel-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .carrossel {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .certificado-card {
-            flex: 0 0 100%;
-            background-color: #000000;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            text-align: left;
-            border: 2px solid transparent;
-            transition: border 0.3s ease;
-        }
-
-        .certificado-card:hover {
-            border: 2px solid steelblue;
-        }
-
-        .certificado-card img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .certificado-card h3 {
-            font-size: 1.6em;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-
-        .certificado-card p {
-            font-size: 1em;
-            margin-bottom: 20px;
-        }
-
-        .certificado-card a {
-            display: flex;
-            justify-content: center;   /* Centraliza horizontalmente */
-            align-items: center;       /* Centraliza verticalmente */
-            padding: 12px 25px;
-            background-color: steelblue;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-            
-        }
-
-        .certificado-card a:hover {
-            background-color: rgb(44, 86, 121);
-        }
-
-        .carrossel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: transparent;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 50%;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease;
-        }
-
-        .carrossel-btn:hover {
-            background-color: #5539a0;
-        }
-
-        .prev-btn {
-            left: -50px;
-        }
-
-        .next-btn {
-            right: -50px;
-        }
-
-        .carrossel-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .indicator {
-            width: 10px;
-            height: 10px;
-            background-color: #d9d9d9;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .indicator.active {
-            background-color: steelblue;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
-
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: #fff;
-            font-size: 2em;
-            cursor: pointer;
-        }
-        .modal-btn {
-            color: #000000;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-
 
         #contato {
             text-align: center;
@@ -440,7 +332,7 @@
         }
 
         footer {
-            background: linear-gradient-left( to right, #000000 20%, rgb(4, 47, 83) 70%);
+          background: linear-gradient-left( to right, #000000 20%, rgb(4, 47, 83) 70%);
             color: #d9d9d9;
             text-align: center;
             padding: 30px;
@@ -466,28 +358,14 @@
                 padding: 80px 20px;
             }
 
-            .projeto-grid, .carrossel-container {
+            .projeto-grid{
                 grid-template-columns: 1fr;
             }
 
-            .carrossel-btn {
-                padding: 8px;
-            }
-
-            .prev-btn {
-                left: 10px;
-            }
-
-            .next-btn {
-                right: 10px;
+            #sobre h1, #projetos h1, #contato h1 {
+                font-size: 2.5em;
             }
         }
 
-        /* Esconde botões do carrossel em telas pequenas */
-        @media (max-width: 700px) {
-            .carrossel-btn {
-                display: none !important;
-            }
-        }
+
         
-
