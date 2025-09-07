@@ -20,9 +20,6 @@ header {
     padding: clamp(8px, 2vw, 10px) clamp(12px, 3vw, 16px);
     background: rgba(0, 0, 0, 0.35);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(13.5px);
-    -webkit-backdrop-filter: blur(13.5px);
-    border: 1px solid rgba(133, 133, 133, 0.18);
     color: #f1f1f1;
     z-index: 900;
     transition: background 0.3s ease, box-shadow 0.3s ease;
@@ -423,3 +420,4 @@ footer {
         font-size: clamp(3.5rem, 6vw, 4.5rem);
     }
 }
+
