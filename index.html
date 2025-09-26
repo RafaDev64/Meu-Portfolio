@@ -156,15 +156,57 @@
 </div>
 </div>
 
- <div class="modal" id="modal5">
+<div class="modal" id="modal5">
     <div class="modal-content">
         <span class="modal-close">&times;</span>
-        <h3>🌐 Vistoria Cautelar SP (v2.0)</h3>
+        <h3>🌐 Sistema de Vistorias Interno - Vistoria Cautelar SP (v2.0)</h3>
         <p>
-        Em andamento...
+            Desenvolvi um sistema web interno para a Vistoria Cautelar SP, uma aplicação voltada para o gerenciamento eficiente de vistorias cautelares. O sistema suporta três perfis de usuário — Admin, Gestor e Vistoriador — com funcionalidades específicas para cada um, garantindo controle de acesso, usabilidade e responsividade. A interface foi projetada com um design moderno e intuitivo, incluindo suporte a temas claro e escuro persistentes via localStorage, validações de formulários, e alertas visuais para feedback ao usuário.
+            
+            Funcionalidades Principais:
+            
+            Autenticação Segura: Tela de login com validação de credenciais e controle de sessão (simulado via localStorage; pronto para integração com JWT ou Firebase Authentication).
+            <br>
+            
+            Painéis Personalizados:
+            
+            Admin: Gerenciamento completo de usuários, vistorias, relatórios gerenciais, financeiros e de vistorias, além de configurações do sistema.
+            Gestor: Criação, edição e atribuição de vistorias, com acesso a relatórios financeiros e de vistorias.
+            Vistoriador: Visualização e gerenciamento de vistorias atribuídas, com interface focada em registrar resultados.
+            
+            Navegação Dinâmica: Painel central (dashboard) que adapta o conteúdo com base no perfil do usuário, com cartões interativos para acesso rápido às funcionalidades.
+            
+            Atualizações em Tempo Real: Simulação de sincronização via localStorage; preparado para integração com WebSockets (Socket.IO) ou Firebase Realtime Database.
+            
+            Relatórios e Exportação: Suporte a filtros, busca e exportação de dados em CSV (extensível para PDF via jsPDF).
+            
+            Acessibilidade e Responsividade: Interface adaptável a diferentes dispositivos, com media queries e atributos ARIA para acessibilidade.
+            <br>
+            
+            Tecnologias Utilizadas:
+            
+            Frontend: HTML5, CSS3 (com variáveis CSS para temas), JavaScript puro.
+            Ferramentas Opcionais: Chart.js (para gráficos, planejado), jsPDF (para exportação de relatórios).
+            Sugestões para Produção: Backend com Node.js + Express, autenticação via JWT, banco de dados MongoDB/PostgreSQL, e Socket.IO para comunicação em tempo real.
+            <br>
+            
+            Desafios e Soluções:
+            
+            Navegação: Resolvi problemas de redirecionamento nos botões do dashboard, substituindo alertas por navegação via window.location.href com tratamento de erros.
+            <br>
+            Controle de Perfis: Implementei um sistema dinâmico que renderiza painéis específicos com base no perfil armazenado no localStorage, garantindo restrição de acesso.
+            <br>
+            Escalabilidade: Estruturei o código para facilitar a integração com um backend, mantendo a lógica frontend modular e independente.
+            <br>
+            Impacto:
+            O sistema proporciona uma gestão centralizada e eficiente das vistorias, reduzindo o tempo de atribuição e acompanhamento, com uma interface que melhora a experiência do usuário em todos os níveis. A simulação de tempo real e a preparação para integração com backend garantem que o projeto possa evoluir para atender demandas de produção.
+            Repositório: GitHub - Sistema de Vistorias Interno (substitua pelo link real)
+            Demonstração: Disponível localmente via servidor HTTP; hospedagem em produção planejada.
+            <br>
+            Contribuições: Projeto aberto a melhorias, como integração de gráficos interativos e backend completo.
+            Este projeto demonstra minha capacidade de criar aplicações web completas, com foco em usabilidade, modularidade e preparação para escalabilidade, utilizando tecnologias modernas e boas práticas de desenvolvimento.
         </p>
     </div>
-</div>
 </div>
     <!--04/09/25: Criação de uma DIV E MOLDAL PARA DESCRIÇÃO para "PROJETOS EM ANDAMENTENTO"-->
    <div class="modal" id="modal6">
@@ -212,6 +254,7 @@
     <script src="assets/js/script.js"></script>
 </body>
 </html>
+
 
 
 
